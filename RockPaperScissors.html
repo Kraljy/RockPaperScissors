@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock / Paper / Scissors</title>
+</head>
+<body>
+
+  <script>
+      function computerPlay() {
+          let options = ['Rock', 'Paper', 'Scissors']
+          let randomNumber = Math.floor(Math.random() * 3);
+          return options[randomNumber]
+      }
+
+      function playerSelection() {
+          let playerOption = prompt("We're playing Rock, Paper, Scisssors... What's your hand");
+          playerOption = playerOption.toLowerCase()
+          if (playerOption == ('rock' || 'paper' || 'scissors')) {
+              return playerOption
+          } else {
+              console.log("Bro learn to play the game")
+          };
+      }
+
+      
+  </script>
+</body>
+</html>
