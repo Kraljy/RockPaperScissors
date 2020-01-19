@@ -7,23 +7,78 @@
 <body>
 
   <script>
-      function computerPlay() {
-          let options = ['Rock', 'Paper', 'Scissors']
-          let randomNumber = Math.floor(Math.random() * 3);
-          return options[randomNumber]
-      }
+    let options = ['rock', 'paper', 'scissors']
+    let playerScore = 0;
+    let computerScore = 0;
 
-      function playerSelection() {
-          let playerOption = prompt("We're playing Rock, Paper, Scisssors... What's your hand");
-          playerOption = playerOption.toLowerCase()
-          if (playerOption == ('rock' || 'paper' || 'scissors')) {
-              return playerOption
-          } else {
-              console.log("Bro learn to play the game")
-          };
-      }
+    function computerPlay() {
+        let randomNumber = Math.floor(Math.random() * 3);
+        return options[randomNumber]
+    }
 
-      
+    function playerSelection() {
+        let playerOption = prompt("We're playing Rock, Paper, Scissors... What's your hand");
+        playerOption = playerOption.toLowerCase()
+        
+        if (playerOption == options[0] || playerOption == options[1] || playerOption == options[2]) {
+            return playerOption
+        } else {
+            alert("Bro learn to play the game")
+            playerSelection();
+        };
+    }
+
+    function playRound(playerOption, computerOption) {
+        console.log(
+            "Human played: " + playerOption + '\n' +
+            "Computer played:  " + computerOption
+        )
+        if (playerOption == computerOption) {
+            return "Game is a tie! " + playerOption + " equals " + computerOption;
+        } else if (
+            playerOption == 'paper' && computerOption == 'rock' ||
+            playerOption == 'rock' && computerOption == 'scissors' ||
+            playerOption == 'scissors' && computerOption == 'paper'
+            ) {
+            playerScore++;
+            return "You win! " + playerOption + " beats " + computerOption;
+        } else {
+            computerScore++;
+            return "You lose! " + computerOption + " beats " + playerOption;
+        }
+    }
+
+    function game() {
+        playRound(playerSelection(), computerPlay());
+        alert(
+            "Player score: " + playerScore + '\n' +
+            "Computer score: " + computerScore
+        );
+
+        playRound(playerSelection(), computerPlay());
+        alert(
+            "Player score: " + playerScore + '\n' +
+            "Computer score: " + computerScore
+        );
+
+        playRound(playerSelection(), computerPlay());
+        alert(
+            "Player score: " + playerScore + '\n' +
+            "Computer score: " + computerScore
+        );
+
+        playRound(playerSelection(), computerPlay());
+        alert(
+            "Player score: " + playerScore + '\n' +
+            "Computer score: " + computerScore
+        );
+
+        playRound(playerSelection(), computerPlay());
+        alert(
+            "Player score: " + playerScore + '\n' +
+            "Computer score: " + computerScore
+        );
+    }   
   </script>
 </body>
 </html>
